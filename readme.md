@@ -1,10 +1,16 @@
 # Проект Секция, 2 поток
+## Занятие 6. Ветвление. Решение задач
++ задачи на геометрию
+
+### Домашка
++ https://informatics.msk.ru/mod/statements/view.php?id=276, задачи V, W, Y, Z, AA, AC
+
 ## Занятие 5. Ветвление. Решение задач
 + модуль числа и функция abs()
 + задачи на шахматную доску
 
 ### Домашка
-+ + https://informatics.msk.ru/mod/statements/view.php?id=276, задачи I..O, Q..U, AE
++ https://informatics.msk.ru/mod/statements/view.php?id=276, задачи I..O, Q..U, AE
 
 ## Занятие 4. Ветвление
 + полная и неполная формы ветвления
