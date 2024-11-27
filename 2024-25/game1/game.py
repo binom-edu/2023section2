@@ -4,6 +4,7 @@ import pygame
 FPS = 60
 WIDTH = 640
 HEIGHT = 480
+g = 0.1
 
 class Hero(pygame.sprite.Sprite):
     def __init__(self):
@@ -11,9 +12,13 @@ class Hero(pygame.sprite.Sprite):
         self.image = pygame.surface.Surface((20, 20))
         self.image.fill((0, 255, 0))
         self.rect = self.image.get_rect()
-        self.rect.topleft = (0, 0)
+        self.rect.bottomleft = (0, HEIGHT - 1)
+        self.vy = 9
+        self.vx = 2
     def update(self):
-        self.rect.y += 1
+        self.vy -= g
+        self.rect.y -= self.vy
+        self.rect.x += self.vx
 
 pygame.init()
 
