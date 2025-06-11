@@ -1,6 +1,6 @@
 import random
-from collections import deque
 from time import sleep, time
+import heapq
 
 def print_board(board):
     for i in range(n):
@@ -45,6 +45,13 @@ def get_neighbours(board):
             ans.append(bc)
     return ans
 
+def h(board):
+    ans = 0
+    for i in range(n**2):
+        if board[i] != i + 1:
+            ans += 1
+    return ans
+
 n = 4
 board = [i + 1 for i in range(n**2)]
 h0 = get_hash(board)
@@ -61,18 +68,20 @@ begin = time()
 
 # bfs
 d = {}
-q = deque()
+q = []
+heapq.heapify(q)
+
 d[get_hash(board)] = 0
-q.append(board)
+heapq.heappush(q, (0 + h(board), board))
 flag = False
 while q:
-    v = q.popleft()
+    v = heapq.heappop(q)[1]
     hv = get_hash(v)
     for u in get_neighbours(v):
         hu = get_hash(u)
         if hu not in d:
             d[hu] = d[hv] + 1
-            q.append(u)
+            heapq.heappush(q, (d[hu] + h(u), u))
         if hu == h0:
             moves = d[hu]
             flag = True
